@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha --reporter-spec -r tests/tshook.js tests/*.ts"
+    "codecov": "nyc mocha --reporter-spec -r tests/tshook.js tests/*.ts",
+    "test": "mocha --reporter spec -r tests/tshook.js tests/*.ts",
+    "test-nyan": "mocha --reporter nyan -r tests/tshook.js tests/*.ts"
   },
   "author": "Jiung Hahm <amoretspero@gmail.com> (https://github.com/amoretspero)",
   "license": "ISC",
@@ -32,8 +34,8 @@
       ".tsx"
     ],
     "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
+      "solution/**/*.ts",
+      "solution/**/*.tsx"
     ],
     "exclude": [
       "**/*.d.ts",
