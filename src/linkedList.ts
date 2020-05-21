@@ -221,6 +221,33 @@ export class LinkedList<T> {
     }
 
     /**
+     * Reverses given linked list, i.e. order of node is in exactly opposite order.
+     * For example, if `1 -> 2 -> 3` is given linked list, reverse should be `3 -> 2 -> 1`.
+     * 
+     * ---
+     * 
+     * 현재 LinkedList를 뒤집은, 즉 노드의 순서가 정반대인 LinkedList를 반환합니다.
+     * 만약 LinkedList가 `1 -> 2 -> 3`이라면 뒤집은 결과는 `3 -> 2 -> 1`이 되어야 합니다.
+     */
+    public reverse(): LinkedList<T> {
+        throw new NotImplementedError();
+    }
+
+    /**
+     * Traverses through given linked list in head to tail order,
+     * and executes callback function with each node's value for its single argument.
+     * 
+     * ---
+     * 
+     * head에서 tail로 가는 순서로 주어진 LinkedList를 순회하면서,
+     * 주어진 callback 함수를 각 node의 value에 대해 실행합니다.
+     * @param callback Function to called with each node's value for its single argument.
+     */
+    public traverse(callback: (nodeValue: T) => void): void {
+        throw new NotImplementedError();
+    }
+
+    /**
      * Arrayify given linked list.
      * 
      * ---

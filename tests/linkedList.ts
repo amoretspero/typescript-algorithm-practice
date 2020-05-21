@@ -225,3 +225,58 @@ describe("LinkedList - deletion", () => {
         linkedList.remove({ width: 300, height: 300 }).toArray().should.deep.equal([{ width: 100, height: 100 }, { width: 300, height: 300 }]);
     });
 });
+
+describe("LinkedList - reverse", () => {
+    it("Primitive type linked list reverse", () => {
+        const linkedList = new LinkedList<number>();
+        linkedList.insert(1)
+            .insert(2)
+            .insert(3);
+        linkedList.reverse().toArray().should.deep.equal([3, 2, 1]);
+    });
+    it("Complext type linked list reverse", () => {
+        const linkedList = new LinkedList<{ width: number; height: number }>();
+        linkedList.insert({ width: 100, height: 100 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 300, height: 300 });
+        linkedList.reverse().toArray().should.deep.equal([
+            { width: 300, height: 300 },
+            { width: 200, height: 200 },
+            { width: 200, height: 200 },
+            { width: 200, height: 200 },
+            { width: 100, height: 100 },
+        ]);
+    });
+});
+
+describe("LinkedList - traverse", () => {
+    it("Primitive type linked list traverse", () => {
+        const linkedList = new LinkedList<number>();
+        linkedList.insert(1)
+            .insert(2)
+            .insert(3);
+        let sum = 0;
+        linkedList.traverse((val) => {
+            sum += val * val;
+        });
+        sum.should.be.equal(14);
+    });
+    it("Complext type linked list traverse", () => {
+        const linkedList = new LinkedList<{ width: number; height: number }>();
+        linkedList.insert({ width: 100, height: 100 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 200, height: 200 })
+            .insert({ width: 300, height: 300 });
+        let widthSum = 0;
+        let heightMax = 0;
+        linkedList.traverse((val) => {
+            widthSum += val.width;
+            heightMax = Math.max(heightMax, val.height);
+        });
+        widthSum.should.be.equal(1000);
+        heightMax.should.be.equal(300);
+    });
+});
