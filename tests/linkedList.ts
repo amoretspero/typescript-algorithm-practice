@@ -6,7 +6,7 @@ chai.use(chaiAsPromised);
 const should = chai.should();
 const expect = chai.expect;
 
-import { LinkedList } from "../solution/linkedList";
+import { LinkedList } from "../src/linkedList";
 
 describe("LinkedList - construction", () => {
     it("Primitive type linked list construction.", () => {
