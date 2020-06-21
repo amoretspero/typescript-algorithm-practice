@@ -8,7 +8,7 @@ const expect = chai.expect;
 
 import { Queue } from "../src/queue";
 
-interface IComplextType {
+interface IComplexType {
     width: number;
     height: number;
     name: string;
@@ -21,7 +21,7 @@ describe("Queue - construction", () => {
         should.equal(queue.peek(), null);
     });
     it("Complex type queue construction", () => {
-        const queue = new Queue<IComplextType>();
+        const queue = new Queue<IComplexType>();
         queue.isEmpty().should.equal(true);
         should.equal(queue.peek(), null);
     });
@@ -37,7 +37,7 @@ describe("Queue - misc", () => {
         queue.toString().should.equal(`[${[1, 2, 3].map((val) => val.toString()).join(",")}]`);
     });
     it("Complex type queue miscs.", () => {
-        const queue = new Queue<IComplextType>();
+        const queue = new Queue<IComplexType>();
         queue.toString().should.equal(`[]`);
         queue.enqueue({ width: 100, height: 100, name: "elem-1" });
         queue.enqueue({ width: 200, height: 200, name: "elem-2" });
@@ -82,7 +82,7 @@ describe("Queue - basic operations", () => {
     });
 
     it("Complex type queue basic operations", () => {
-        const queue = new Queue<IComplextType>();
+        const queue = new Queue<IComplexType>();
         [
             {
                 width: 100,
